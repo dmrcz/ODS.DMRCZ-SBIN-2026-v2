@@ -74,7 +74,7 @@ BASE=$(git merge-base @ "$UPSTREAM")
 # if [ "$LOCAL" = "$REMOTE" ]; then                                 // #
 #   echo " Aplikace je aktuální."                                   // #
 if [ "$LOCAL" = "$REMOTE" ]; then                                   
-    echo -e "\e[1;32m APLIKACE JE AKTUÁLNÍ.\e[0m"                   // ZMENA NA TUCNE PISMO A DO ZELENE BARVY    
+    echo -e "\e[1;32mAPLIKACE JE AKTUÁLNÍ.\e[0m"             
 elif [ "$LOCAL" = "$BASE" ]; then
     echo "&nbsp;<a class=\"lookatme\" lookatme-text=\"AKTUALIZOVAT!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\">AKTUALIZOVAT!</a>"
 elif [ "$REMOTE" = "$BASE" ]; then
