@@ -76,6 +76,7 @@ if ($remote_hash && $remote_hash !== $local_hash) {
 } else {
     echo "Systém je aktuální.\n";
 }
+fi
 
 if [[ $html_output == true ]]; then
     echo "&nbsp;<a class=\"lookatme\" lookatme-text=\"Update available!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\">Update available!</a>"
