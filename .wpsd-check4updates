@@ -57,7 +57,7 @@ for repo_key in "${!repos[@]}"; do
     if [[ $(check_update "$repo_key" "${repos[$repo_key]}") -eq 1 ]]; then
         update_available=true
         if [ -t 1 ]; then # running from terminal
-            echo "Update available for $repo_key!"
+            echo "Update available for $repo_key! Source: https://github.com/dmrcz/ODS.DMRCZ-DASH-2026-v2.git"
         else
             html_output=true
         fi
