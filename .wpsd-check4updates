@@ -72,13 +72,13 @@ REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
 if [ "$LOCAL" = "$REMOTE" ]; then
-    echo "Aplikace je aktuální."
+    echo " Aplikace je aktuální."
 elif [ "$LOCAL" = "$BASE" ]; then
     echo "&nbsp;<a class=\"lookatme\" lookatme-text=\"AKTUALIZOVAT!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\">AKTUALIZOVAT!</a>"
 elif [ "$REMOTE" = "$BASE" ]; then
-    echo "Máte lokální změny, které nejsou na serveru (Need to push)."
+    echo " Máte lokální změny, které nejsou na serveru (Need to push)."
 else
-    echo "Větve se rozcházejí (Diverged)."
+    echo " Větve se rozcházejí (Diverged)."
 fi
 
 if ! $update_available; then
