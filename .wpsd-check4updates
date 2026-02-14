@@ -51,28 +51,32 @@ if [[ ! -s "$gitRemoteVerCache" ]]; then
 fi
 
 # Check for updates
-# Inicializace proměnné
-update_available=false
-repo_url="https://github.com/dmrcz/ODS.DMRCZ-DASH-2026-v2.git"
+// Konfigurace
+$repo = "https://github.com/dmrcz/ODS.DMRCZ-DASH-2026-v2.git";
+$local_hash_file = __DIR__ . '/.current_commit'; // Soubor pro uložení aktuální verze
 
-# Simulace kontroly aktualizací (check_update)
-# V reálném scénáři byste použili např. 'git fetch' a 'git status'
-check_update() {
-    # Návratová hodnota 1 znamená, že je dostupná aktualizace
-    return 1 
+function getRemoteHash($repo) {
+    $url = "https://api.github.com";
+    $options = ['http' => ['header' => "User-Agent: PHP-Update-Checker\r\n"]];
+    $context = stream_context_create($options);
+    $response = @file_get_contents($url, false, $context);
+    
+    if (!$response) return null;
+    $data = json_decode($response, true);
+    return $data['sha'] ?? null;
 }
 
-# Logika kontroly
-check_update
-if [ $? -eq 1 ]; then
-    update_available=true
-    
-    # Výstup do terminálu
-    echo "-------------------------------------------------------"
-    echo "⚠️  Update available for: $repo_url"
-    echo "-------------------------------------------------------"
-fi
-done
+$remote_hash = getRemoteHash($repo);
+$local_hash = file_exists($local_hash_file) ? trim(file_get_contents($local_hash_file)) : '';
+
+if ($remote_hash && $remote_hash !== $local_hash) {
+    echo "Nová aktualizace k dispozici! (Hash: $remote_hash)\n";
+    // Zde můžete spustit 'git pull' nebo jinou aktualizační logiku
+    // file_put_contents($local_hash_file, $remote_hash);
+} else {
+    echo "Systém je aktuální.\n";
+}
+
 if [[ $html_output == true ]]; then
     echo "&nbsp;<a class=\"lookatme\" lookatme-text=\"Update available!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\">Update available!</a>"
 fi
