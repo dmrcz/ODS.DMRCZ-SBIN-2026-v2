@@ -72,15 +72,10 @@ REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
 # if [ "$LOCAL" = "$REMOTE" ]; then                                 // #
-#   echo " Aplikace je aktuální."                                   // #
-GREEN='\033[0;32m'
-BOLD_GREEN='\033[1;32m'
-NC='\033[0m' # No Color (reset)
-
-if [ "$LOCAL" = "$REMOTE" ]; then
-    echo -e "${BOLD_GREEN}Aplikace je aktuální.${NC}"            
+ if [ "$LOCAL" = "$REMOTE" ]; then
+   echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" DASHBOARD AKTUALIZOVANÝ\" style=\"color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;\"> DASHBOARD AKTUALIZOVANÝ</a>"
 elif [ "$LOCAL" = "$BASE" ]; then
-    echo "&nbsp;<a class=\"lookatme\" lookatme-text=\"AKTUALIZOVAT!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\">AKTUALIZOVAT!</a>"
+    echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" AKTUALIZOVAT!\" style=\"color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;\" href=\"/admin/advanced/services.php?action=updatehostsfiles\" >AKTUALIZOVAT!</a>"
 elif [ "$REMOTE" = "$BASE" ]; then
     echo " Máte lokální změny, které nejsou na serveru (Need to push)."
 else
