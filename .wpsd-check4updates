@@ -51,21 +51,27 @@ if [[ ! -s "$gitRemoteVerCache" ]]; then
 fi
 
 # Check for updates
+# Inicializace proměnné
 update_available=false
-html_output=false
-for repo_key in "${!repos[@]}"; do
-    if [[ $(check_update "$repo_key" "${repos[$repo_key]}") -eq 1 ]]; then
-        update_available=true
-        if [ -t 1 ]; then # running from terminal
-            echo "Update available for $repo_key! Source: https://github.com/dmrcz/ODS.DMRCZ-DASH-2026-v2.git"
-        else
-            html_output=true
-        fi
-    else
-        if [ -t 1 ]; then
-            echo "No updates for $repo_key."
-        fi
-    fi
+repo_url="https://github.com/dmrcz/ODS.DMRCZ-DASH-2026-v2.git"
+
+# Simulace kontroly aktualizací (check_update)
+# V reálném scénáři byste použili např. 'git fetch' a 'git status'
+check_update() {
+    # Návratová hodnota 1 znamená, že je dostupná aktualizace
+    return 1 
+}
+
+# Logika kontroly
+check_update
+if [ $? -eq 1 ]; then
+    update_available=true
+    
+    # Výstup do terminálu
+    echo "-------------------------------------------------------"
+    echo "⚠️  Update available for: $repo_url"
+    echo "-------------------------------------------------------"
+fi
 done
 if [[ $html_output == true ]]; then
     echo "&nbsp;<a class=\"lookatme\" lookatme-text=\"Update available!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\">Update available!</a>"
