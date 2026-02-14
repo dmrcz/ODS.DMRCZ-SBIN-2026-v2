@@ -71,11 +71,10 @@ LOCAL=$(git rev-parse @)
 REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
-# if [ "$LOCAL" = "$REMOTE" ]; then                                 // #
  if [ "$LOCAL" = "$REMOTE" ]; then
-   echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" DASHBOARD AKTUALIZOVANÝ\" style=\"color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;\"> DASHBOARD AKTUALIZOVANÝ</a>"
+  echo -e "&nbsp;<a class='lookatme' style='color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;'> AKTUALNÍ VERZE</a>"
 elif [ "$LOCAL" = "$BASE" ]; then
-    echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" AKTUALIZOVAT!\" style=\"color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;\" href=\"/admin/advanced/services.php?action=updatehostsfiles\" >AKTUALIZOVAT!</a>"
+    echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" AKTUALIZOVAT!\" style=\"color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;\" href=\"/admin/advanced/services.php?action=updatehostsfiles\" >AKTUALIZOVAT!</a>
 elif [ "$REMOTE" = "$BASE" ]; then
     echo " Máte lokální změny, které nejsou na serveru (Need to push)."
 else
