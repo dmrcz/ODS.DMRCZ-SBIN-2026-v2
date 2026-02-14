@@ -71,7 +71,7 @@ LOCAL=$(git rev-parse @)
 REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
- if [ "$LOCAL" = "$REMOTE" ]; then
+if [ "$LOCAL" = "$REMOTE" ]; then
     echo " Aplikace je aktuální."
 elif [ "$LOCAL" = "$BASE" ]; then
     echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" AKTUALIZOVAT!\" style=\"color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;\" href=\"/admin/advanced/services.php?action=updatehostsfiles\" >AKTUALIZOVAT!</a>
