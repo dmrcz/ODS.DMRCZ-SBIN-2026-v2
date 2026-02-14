@@ -53,7 +53,7 @@ fi
 
 # Konfigurace
 REPO_URL="https://github.com/dmrcz/ods.dmrcz-dash-2026-v2.git"
-BRANCH="main" # Změňte na master, pokud nepoužíváte main
+BRANCH="master" # Změňte na master, pokud nepoužíváte main
 
 # Ověření, zda jsme v git repozitáři
 if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
