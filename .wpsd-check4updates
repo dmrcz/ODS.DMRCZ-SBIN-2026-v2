@@ -51,7 +51,7 @@ if [[ ! -s "$gitRemoteVerCache" ]]; then
 fi
 
 
-# Konfigurace
+# ODS.DMRCZ UPDATE BLIKAJICI
 REPO_URL="https://github.com/dmrcz/ods.dmrcz-dash-2026-v2.git"
 BRANCH="ODS.DMRCZ-DASH-2026-v2" # Změňte na master, pokud nepoužíváte main nebo ODS.DMRCZ-DASH-2026-v2
 
