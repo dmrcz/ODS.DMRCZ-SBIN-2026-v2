@@ -13,9 +13,9 @@
     sudo rm -rf /var/www/dashboard
     sudo rm -rf /usr/local/bin
     sudo rm -rf /usr/local/sbin
-    cd /var/www && sudo git clone https://github.com/dmrcz/ODS.DMRCZ-DASH-2026.git /var/www/dashboard
-    cd /usr/local && sudo git clone https://github.com/dmrcz/ODS.DMRCZ-BIN-2026.git /usr/local/bin
-    cd /usr/local && sudo git clone https://github.com/dmrcz/ODS.DMRCZ-SBIN-2026.git /usr/local/sbin
+    cd /var/www && sudo git clone https://github.com/dmrcz/ODS.DMRCZ-DASH-2026-v2.git /var/www/dashboard
+    cd /usr/local && sudo git clone https://github.com/dmrcz/ODS.DMRCZ-BIN-2026-v2.git /usr/local/bin
+    cd /usr/local && sudo git clone https://github.com/dmrcz/ODS.DMRCZ-SBIN-2026-v2.git /usr/local/sbin
     sudo chown -R www-data:www-data /var/www/dashboard /usr/local/bin /usr/local/sbin
 
 
