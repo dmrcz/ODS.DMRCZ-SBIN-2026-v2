@@ -74,7 +74,7 @@ BASE=$(git merge-base @ "$UPSTREAM")
 if [ "$LOCAL" = "$REMOTE" ]; then
     echo '&nbsp;<a class="lookatme" style="color: #28a745; font-weight: bold; font-size: 3.2em; text-decoration: none;">AKTUÁLNÍ VERZE</a>';
 elif [ "$LOCAL" = "$BASE" ]; then
-    echo "&nbsp;<a class=\"lookatme\" lookatme-text=\" Aktualizovat!\" href=\"/admin/advanced/services.php?action=updatehostsfiles\"> Aktualizovat!</a>"
+   echo '&nbsp;<a class="lookatme" style="font-size: 3.2rem; color: #ff0000;" lookatme-text="AKTUALIZOVAT!" href="/admin/advanced/services.php?action=updatehostsfiles">AKTUALIZOVAT!</a>';
 elif [ "$REMOTE" = "$BASE" ]; then
     echo " Máte lokální změny, které nejsou na serveru (Need to push)."
 else
@@ -89,5 +89,3 @@ if ! $update_available; then
 fi
 
 exit 0
-
-
